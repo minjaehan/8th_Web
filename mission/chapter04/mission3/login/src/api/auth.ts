@@ -1,13 +1,21 @@
-// src/api/auth.ts
-import api from "./axios";
+import axios from "axios";
+import {RequestSigninDto,RequestSignupDto,ResponseSignupDto} from "../types/auth.ts"
 
-export const signup = async (data: {
-  name: string;
-  email: string;
-  password: string;
-  bio?: string;
-  avatar?: string;
-}) => {
-  const res = await api.post("/v1/auth/signup", data); // 
-  return res.data;
-};
+export const postSignup = async(body:RequestSignupDto):Promise<ResponseSignupDto> =>{
+  const{data} = await axios.post(
+    "http://localhost:8000/v1/auth/signup",
+    body,
+  );
+  return data;
+}
+
+export const postSignin = async(body:RequestSigninDto):Promise<ResponseSigninDto>
+=>{
+  const {data} = await axios.post(
+    "http://localhost:8000/v1/auth/signin",
+    body,
+
+  );
+
+  return data;
+}
