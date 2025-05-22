@@ -35,6 +35,7 @@ const HomePage = () => {
     return <div>에러가 발생했습니다.</div>;
   }
 
+
   return (
     <div className="container mx-auto px-4 py-6">
       <input
@@ -43,6 +44,7 @@ const HomePage = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)} 
       />
+
 
       <div
         className={
@@ -62,5 +64,6 @@ const HomePage = () => {
     </div>
   );
 };
+
 
 export default HomePage;
